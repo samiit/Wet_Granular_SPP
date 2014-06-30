@@ -1,10 +1,40 @@
+/************ Mixing parameter calculation by Doucet et al. *****************/
+/* Doucet, J., F. Bertrand, and J. Chaouki. */
+/* "A measure of mixing from Lagrangian tracking and its application to granular and fluid flow systems." */
+/* Chemical Engineering Research and Design 86.12 (2008): 1313-1321.*/
+
+/**********Developed at Dr. Mahesh V. Panchagnula and Dr. Srikanth Vedantam's group at IIT Madras**************/
+/**********Fluid Mechanics, Department of Applied Mechanics, IIT Madras**************/
+/**********Final C code developed by Sam Mathew (sam<dot>cfd<dot>iitm<at>gmail<dot>com) **************/
+
+/***********This code is covered under GNU Public licensing*************/
+
+/*------------------------------------------------------------------------------
+
+# License
+
+#
+#     This is a free code: you can redistribute it and/or modify it
+#     under the terms of the GNU General Public License as published by
+#     the Free Software Foundation, either version 3 of the License, or
+#     (at your option) any later version.
+#
+#     This mixing parameter code is distributed in the hope that it will be useful, but WITHOUT
+#     ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+#     FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+#     for more details.
+#
+#
+#------------------------------------------------------------------------------*/
+
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
 
 #define core 6084
-#define total_files 21
+#define total_files 4021
 
 void svdlapack(double **a, int row, int col, double **u, double **s, double **v);
 void printmatrix(char *var, double **a, int row, int col);

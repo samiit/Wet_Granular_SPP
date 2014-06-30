@@ -1,3 +1,11 @@
+/**********Developed at Dr. Mahesh V. Panchagnula and Dr. Srikanth Vedantam's groupt at IIT Madras**************/
+/**********Work started in C by Mr. Pavan Bopanpillewar**************/
+/**********Initial C++ framework by Bright Varghese**************/
+/**********Final C++ code developed by Sam Mathew**************/
+/**********C++ learing from "C++ for C programmers" course offered by Prof. Ira Pohl on http://www.Coursera.org"**************/
+
+/***********This code is covered under GNU Public licensing*************/
+
 /************************/
 /* Combined code for
 /* Belt driven cavity/enclosure problem (wet granular) {keywords: belt, }

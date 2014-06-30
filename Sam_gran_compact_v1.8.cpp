@@ -1,10 +1,34 @@
-/**********Developed at Dr. Mahesh V. Panchagnula and Dr. Srikanth Vedantam's groupt at IIT Madras**************/
+/**********Developed at Dr. Mahesh V. Panchagnula and Dr. Srikanth Vedantam's group at IIT Madras**************/
 /**********Work started in C by Mr. Pavan Bopanpillewar**************/
 /**********Initial C++ framework by Bright Varghese**************/
 /**********Final C++ code developed by Sam Mathew**************/
 /**********C++ learing from "C++ for C programmers" course offered by Prof. Ira Pohl on http://www.Coursera.org"**************/
 
 /***********This code is covered under GNU Public licensing*************/
+
+/*------------------------------------------------------------------------------
+
+ Copyright (C) 2011 OpenFOAM Foundation
+
+#-------------------------------------------------------------------------------
+# License
+
+#
+#     This is a free code: you can redistribute it and/or modify it
+#     under the terms of the GNU General Public License as published by
+#     the Free Software Foundation, either version 3 of the License, or
+#     (at your option) any later version.
+#
+#     This wet granular code is distributed in the hope that it will be useful, but WITHOUT
+#     ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+#     FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+#     for more details.
+#
+#
+#------------------------------------------------------------------------------*/
+
+
+
 
 /************************/
 /* Combined code for

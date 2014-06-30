@@ -1,8 +1,10 @@
+/************ Wet Granular and Self-propelled particle simulator *****************/
+
 /**********Developed at Dr. Mahesh V. Panchagnula and Dr. Srikanth Vedantam's group at IIT Madras**************/
 /**********Fluid Mechanics, Department of Applied Mechanics, IIT Madras**************/
 /**********Work started in C by Mr. Pavan Bonkinpillewar**************/
 /**********Initial C++ framework by Bright Varghese**************/
-/**********Final C++ code developed by Sam Mathew**************/
+/**********Final C++ code developed by Sam Mathew (sam<dot>cfd<dot>iitm<at>gmail<dot>com)**************/
 /**********C++ learing from "C++ for C programmers" course offered by Prof. Ira Pohl on http://www.Coursera.org"**************/
 
 /***********This code is covered under GNU Public licensing*************/

@@ -3,6 +3,9 @@
 /**********Developed at Dr. Mahesh V. Panchagnula and Dr. Srikanth Vedantam's group at IIT Madras**************/
 /**********Fluid Mechanics, Department of Applied Mechanics, IIT Madras**************/
 /**********Work started in C by Mr. Pavan Bonkinpillewar**************/
+/* Pavan Bonkinpillewar, Mahesh V Panchagnula and Srikanth Vedantam
+/* "Flow of Wet Granular Material in a lid Driven Cavity" */
+/*Seventh M.I.T. Conference on Computational Fluid and Solid Mechanics, Massachusetts Institute of Technology, Cambridge, U.S.A*/
 /**********Initial C++ framework by Bright Varghese**************/
 /**********Final C++ code developed by Sam Mathew (sam<dot>cfd<dot>iitm<at>gmail<dot>com)**************/
 /**********C++ learing from "C++ for C programmers" course offered by Prof. Ira Pohl on http://www.Coursera.org"**************/

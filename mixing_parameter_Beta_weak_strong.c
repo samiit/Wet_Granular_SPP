@@ -14,19 +14,18 @@
 # License
 
 #
-#     This is a free code: you can redistribute it and/or modify it
-#     under the terms of the GNU General Public License as published by
-#     the Free Software Foundation, either version 3 of the License, or
-#     (at your option) any later version.
+# This is a free code: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 #
-#     This mixing parameter code is distributed in the hope that it will be useful, but WITHOUT
-#     ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-#     FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
-#     for more details.
+# This mixing parameter code is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+# for more details.
 #
 #
 #------------------------------------------------------------------------------*/
-
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -34,7 +33,7 @@
 #include <time.h>
 
 #define core 6084
-#define total_files 4021
+#define total_files 21
 
 void svdlapack(double **a, int row, int col, double **u, double **s, double **v);
 void printmatrix(char *var, double **a, int row, int col);
@@ -124,29 +123,29 @@ main()
             }
 
         // Initializing the Correlation matrix
-        for (l=0; l<2;l++)
-            for (m=0; m<3;m++)
+        for (l=0; l<spatial_dim;l++)
+            for (m=0; m<spatial_dim + size_dim;m++)
                 {
                 C_ss[l][m] = 0.0;
                 if (m<2) C_ws[l][m] = 0.0;
                 }
         // Calculating the Correlation matrix
-        for (l=0; l<2;l++)
-            for (m=0; m<3;m++)
+        for (l=0; l<spatial_dim;l++)
+            for (m=0; m<spatial_dim + size_dim;m++)
                 for (j=0; j<core;j++)
                     {
                     C_ss[l][m] += X[j][l]*X0[j][m];
                     }
         // Calculating the mean
-        for (l=0; l<2;l++)
-            for (m=0; m<3;m++)
+        for (l=0; l<spatial_dim;l++)
+            for (m=0; m<spatial_dim + size_dim;m++)
                 {
                 C_ss[l][m] /= core;
                 if (m<2) C_ws[l][m] = C_ss[l][m]; // Since C_ws has the same elements as C_ss, except for the last column
                 }
         // Calculating the transpose
-        for (l=0; l<2;l++)
-            for (m=0; m<3;m++)
+        for (l=0; l<spatial_dim;l++)
+            for (m=0; m<spatial_dim + size_dim;m++)
                 {
                 C_ss_t[m][l] = C_ss[l][m];
                 if (m<2) C_ws_t[m][l] = C_ws[l][m];
@@ -157,14 +156,14 @@ main()
         M = array2_create(row, row);
 
 
-        for (j=0; j<2;j++)
-            for (k=0; k<2;k++)
+        for (j=0; j<spatial_dim;j++)
+            for (k=0; k<spatial_dim;k++)
                 M[j][k] = 0.0;
 
             // Updating M through matrix multiplication of C and C_transpose
-        for (j=0; j<2;j++)
-            for (k=0; k<2;k++)
-                for (l=0;l<2;l++) // l is the dimensions of correlation matrix. For beta_ws, only spatial (2) dimensions
+        for (j=0; j<spatial_dim;j++)
+            for (k=0; k<spatial_dim;k++)
+                for (l=0;l<spatial_dim;l++) // l is the dimensions of correlation matrix. For beta_ws, only spatial (2) dimensions
                     M[j][k] += C_ws[j][l]*C_ws_t[l][k];
 
         u = array2_create(row, row);
@@ -172,8 +171,8 @@ main()
         v = array2_create(col, col);
 
         svdlapack(M, row, col, u, s, v);
-        fprintf(mx, "%f\t%f\t%f\t%f\t", time, cycle, energy, sqrt(s[0][0]/2));
-        for (j=0;j<2;j++)
+        fprintf(mx, "%f\t%f\t%f\t%f\t", time, cycle, energy, sqrt(s[0][0]/spatial_dim));
+        for (j=0;j<spatial_dim;j++)
             fprintf(mx, "%f\t", u[j][0]);
 
         array2_free(M);
@@ -185,14 +184,14 @@ main()
             // Initializing M
         M = array2_create(row, row);
 
-        for (j=0; j<2;j++)
-            for (k=0; k<2;k++)
+        for (j=0; j<spatial_dim;j++)
+            for (k=0; k<spatial_dim;k++)
                 M[j][k] = 0.0;
 
             // Updating M through matrix multiplication of C and C_transpose
-        for (j=0; j<2;j++)
-            for (k=0; k<2;k++)
-                for (l=0;l<3;l++) // l is the dimensions of correlation matrix. For beta_ss, spatial (2) + size (1) dimensions
+        for (j=0; j<spatial_dim;j++)
+            for (k=0; k<spatial_dim;k++)
+                for (l=0;l<spatial_dim + size_dim;l++) // l is the dimensions of correlation matrix. For beta_ss, spatial (2) + size (1) dimensions
                     M[j][k] += C_ss[j][l]*C_ss_t[l][k];   
         u = array2_create(row, row);
         s = array2_create(row, col);
@@ -200,8 +199,8 @@ main()
         svdlapack(M, row, col, u, s, v);
 
 
-        fprintf(mx, "%f", sqrt(s[0][0]/3));
-        for (j=0;j<2;j++)
+        fprintf(mx, "%f", sqrt(s[0][0]/(spatial_dim + size_dim)));
+        for (j=0;j<spatial_dim;j++)
             fprintf(mx, "\t%f", u[j][0]);
         fprintf(mx, "\n");
 

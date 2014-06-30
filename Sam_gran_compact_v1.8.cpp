@@ -1,5 +1,6 @@
 /**********Developed at Dr. Mahesh V. Panchagnula and Dr. Srikanth Vedantam's group at IIT Madras**************/
-/**********Work started in C by Mr. Pavan Bopanpillewar**************/
+/**********Fluid Mechanics, Department of Applied Mechanics, IIT Madras**************/
+/**********Work started in C by Mr. Pavan Bonkinpillewar**************/
 /**********Initial C++ framework by Bright Varghese**************/
 /**********Final C++ code developed by Sam Mathew**************/
 /**********C++ learing from "C++ for C programmers" course offered by Prof. Ira Pohl on http://www.Coursera.org"**************/
@@ -8,9 +9,6 @@
 
 /*------------------------------------------------------------------------------
 
- Copyright (C) 2011 OpenFOAM Foundation
-
-#-------------------------------------------------------------------------------
 # License
 
 #

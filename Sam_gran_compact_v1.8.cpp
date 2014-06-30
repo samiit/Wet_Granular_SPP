@@ -47,7 +47,7 @@
 /* (c) The main() function generates an object of the Simulate class. Bulk of the calculations then happen, when the function 'mainLoop' associated Simulate is called from main().
 /* (d) A global vector of objects of the class Particle is generated after the Particle class definition. This vector of objects are then populated (generated), and manipulated within the different calls during the simulation.
 /* (e) Numerical integration of the particles position and velocity is done using the Velocity-Verlet algorithm.
-/* (f) Computational efficiency if achieved by neighbour list generation for each particle. The current formulation is a combination of cell-list and Verlet-list, which is updated only if the position of any of the particles moves more than the skin radius pre-defined in the first few lines before the fucntion definitions. In this way, there is no approximation as long as the cutoff radius is well defined.
+/* (f) Computational efficiency is achieved by neighbour list generation for each particle. The current formulation is a combination of cell-list and Verlet-list, which is updated only if the position of any of the particles moves more than the skin radius pre-defined in the first few lines before the fucntion definitions. In this way, there is no approximation as long as the cutoff radius is well defined.
 
 ---------------------
 

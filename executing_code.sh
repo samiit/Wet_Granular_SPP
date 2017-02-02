@@ -13,7 +13,7 @@ mkdir particle_data
 
 # There are 17 arguments along with the executable: 
 t_initial=0.0 #1 Initial time = 0.0 (default)
-t_final=201.0 #2 Final time = 410.0 (default)
+t_final=201.0 #2 Final time = 201.0 (default)
 
 # Specify whether initial data file present or not. If then, the files should be named "interior_ini.txt" and "wall_ini.txt", respectively, and kept in the same directory as the executable 'a.out'
 
